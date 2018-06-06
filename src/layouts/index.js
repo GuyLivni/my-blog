@@ -1,80 +1,36 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Helmet from 'react-helmet'
-import Media from 'react-media'
+import React from 'react';
+import PropTypes from 'prop-types';
+import Helmet from 'react-helmet';
+import styled from 'styled-components';
 
-import Header from '../components/header'
-import Sidebar from '../components/sideBar'
+import Header from '../components/header';
+import Footer from '../components/footer';
+import faIconLibrary from '../styles/fa-icons';
+
 import './index.css'
-import '../styles/layout-overide.css'
+
+faIconLibrary();
+
+const Container = styled('div')`
+   max-width: 42rem;
+   padding: 4rem 1rem 0 1rem;
+   margin-left: auto;
+   margin-right: auto;
+`;
 
 const Layout = ({ children, data }) => (
-  <div>
+  <Container>
     <Helmet
       title={data.site.siteMetadata.title}
       meta={[
-        { name: "description", content: "Sample" },
-        { name: "keywords", content: "sample, something" }
+        { name: "description", content: "Guy Livni Blog" },
+        { name: "keywords", content: "react, node, front-end, full-stack" }
       ]}
     />
-    <Header siteTitle={data.site.siteMetadata.title} />
-    <div
-      style={{
-        margin: "0 auto",
-        maxWidth: 980,
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "space-between",
-        height: "100%"
-      }}
-    >
-      <Media query={{ maxWidth: 848 }}>
-        {matches =>
-          matches ? (
-            <div
-              style={{
-                margin: "0 auto",
-                maxWidth: 980,
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "space-between",
-                height: "100%",
-                padding: "25px"
-              }}
-            >
-              <div style={{ flex: 1 }}>{children()}</div>
-            </div>
-          ) : (
-            <div
-              style={{
-                margin: "0 auto",
-                maxWidth: 980,
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "space-between",
-                height: "100%",
-                padding: "25px"
-              }}
-            >
-              <div style={{ flex: 2.5, paddingRight: "30px" }}>
-                {children()}
-              </div>
-              <div style={{ flex: 1 }}>
-                <Sidebar
-                  title="About the blog"
-                  description="This is a blog about my thoughts and experience with different technologies"
-                />
-                <Sidebar
-                  title="About me"
-                  description="I am a Full-stack Web Developer specializing in React and Node.js. Love anime, gaming and bouldering"
-                />
-              </div>
-            </div>
-          )
-        }
-      </Media>
-    </div>
-  </div>
+    <Header />
+    {children()}
+    <Footer />
+  </Container>
 );
 
 Layout.propTypes = {
