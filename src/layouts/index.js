@@ -5,14 +5,15 @@ import styled from 'styled-components';
 
 import Header from '../components/header';
 import Footer from '../components/footer';
-import faIconLibrary from '../styles/fa-icons';
 
-import './index.css'
+import faIconLibrary from '../styles/fa-icons';
+import globalStyles from '../styles/global';
 
 faIconLibrary();
+globalStyles();
 
 const Container = styled('div')`
-   max-width: 42rem;
+   max-width: 46rem;
    padding: 4rem 1rem 0 1rem;
    margin-left: auto;
    margin-right: auto;

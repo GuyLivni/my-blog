@@ -35,7 +35,7 @@ const Footer = () => (
       <a href="https://twitter.com/guy_livni" target="_blank"><FontAwesomeIcon icon={['fab', 'twitter']} /></a>
       <a href="https://www.linkedin.com/in/guylivni/" target="_blank"><FontAwesomeIcon icon={['fab', 'linkedin']} /></a>
     </Menu>
-    <p>© 2018 Guy Livni. All rights reserved.</p>
+    <p>© {new Date().getFullYear()} Guy Livni. All rights reserved.</p>
   </Container>
 );
 

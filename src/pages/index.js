@@ -15,10 +15,6 @@ const PostList = styled('div')`
   grid-template-columns: repeat(auto-fill,minmax(260px,1fr));
 `;
 
-const PostItem = styled('div')`
-  justify-self: center;
-`;
-
 const Tags = styled('ul')`
   display: flex;
   list-style: none;
@@ -56,7 +52,7 @@ const IndexPage = ({ data }) => {
           const { path, title, date, tags } = frontmatter;
 
           return (
-            <PostItem key={id}>
+            <div key={id}>
               <PostTitle>
                 <Link to={path}>{title}</Link>
               </PostTitle>
@@ -75,7 +71,7 @@ const IndexPage = ({ data }) => {
                   )
                 })}
               </Tags>
-            </PostItem>
+            </div>
           );
         })}
       </PostList>
