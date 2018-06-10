@@ -19,6 +19,10 @@ const Container = styled('div')`
    margin-right: auto;
 `;
 
+const Content = styled('div')`
+   margin-bottom: 100px;
+`;
+
 const Layout = ({ children, data }) => (
   <Container>
     <Helmet
@@ -29,7 +33,9 @@ const Layout = ({ children, data }) => (
       ]}
     />
     <Header />
-    {children()}
+    <Content>
+      {children()}
+    </Content>
     <Footer />
   </Container>
 );
